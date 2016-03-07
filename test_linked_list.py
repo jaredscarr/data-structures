@@ -27,6 +27,17 @@ def test_size():
     assert fake_list.size() == 4
 
 
+def test_display():
+    """Print the list."""
+    from linked_list import Node
+    from linked_list import LinkedList
+    from linked_list import test_display
+    new_node = Node('dogs', 'cats')
+    next_node = Node('cats')
+    fake_list = [new_node, next_node]
+    assert fake_list.display() == ('dogs', 'cats')
+
+
 def test_insert(val):
     """Test if inserts to head position."""
     from linked_list import Node
