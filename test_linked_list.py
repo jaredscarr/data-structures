@@ -19,7 +19,15 @@ def test_search():
     assert fake_list.search('chicken-monkey') == new_node
 
 
-def test_insert():
+def test_size():
+    """Test if size of list is returned."""
+    from linked_list import LinkedList
+    from linked_list import size
+    fake_list = ('20', 'bob', 'chicken-monkey', 'lizards')
+    assert fake_list.size() == 4
+
+
+def test_insert(val):
     """Test if inserts to head position."""
     from linked_list import Node
     from linked_list import LinkedList
