@@ -8,3 +8,12 @@ class Node(object):
         """Initialize node object."""
         self.data = data
         self.next = None
+
+
+class LinkedList(object):
+    """Handle creation of a linked list."""
+
+    def insert(self, val):
+        """Insert new node at head of list."""
+        new_node = Node(val)
+        new_node.next
