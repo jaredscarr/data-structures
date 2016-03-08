@@ -6,7 +6,7 @@ def test_node_class():
     """Test Node."""
     from linked_list import Node
     new_node = Node('caterpillar')
-    assert new_node.data == 'caterpillar'
+    assert new_node.get_data() == 'caterpillar'
 
 
 def test_search():
@@ -14,8 +14,9 @@ def test_search():
     from linked_list import Node
     from linked_list import LinkedList
     from linked_list import search
-    fake_list = ('20', 'bob', 'chicken-monkey', 'lizards')
-    new_node = Node('chicken-monkey', 'lizards')
+    fake_list = LinkedList()
+    new_node = Node('chicken-monkey')
+    fake_list.insert()
     assert fake_list.search('chicken-monkey') == new_node
 
 
