@@ -4,22 +4,14 @@
 class Node(object):
     """Construct Node object."""
 
-    def __init__(self, data):
+    def __init__(self, val):
         """Initialize node object."""
-        self.data = data
+        self.val = val
         self.next = None
 
-    def get_data(self):
+    def get_val(self):
         """Get data."""
-        return self.data
-
-    def get_next(self):
-        """Get the reference to the next node."""
-        return self.next
-
-    def set_next(self, new_next):
-        """Set the reference to the next node."""
-        self.next = new_next
+        return self.val
 
 
 class LinkedList(object):
@@ -33,7 +25,7 @@ class LinkedList(object):
     def insert(self, val):
         """Insert new node at head of list."""
         new_node = Node(val)
-        new_node.set_next(self.head)
+        new_node.next = self.head
         self.head = new_node
 
     def search(self, val):
@@ -41,7 +33,7 @@ class LinkedList(object):
         current = self.head
         found = False
         while current and not found:
-            if current.get_data == val:
+            if current.get_val == val:
                 found = True
                 return current
             current = current.get_next()
@@ -53,13 +45,14 @@ class LinkedList(object):
         new_head = current.get_next()
         new_head = self.head
 
+
     # def remove(self, node):
     #     """Remove specific node."""
     #     current = self.head
     #     previous = None
     #     found = False
     #     while current is not None and not found: 
-    #         if current.get_data == node:
+    #         if current.get_val == node:
     #             previous = current
     #             current = current.get_next()
     #             found = True

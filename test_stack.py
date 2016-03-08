@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from stack import Node
-from stack import Stack
 
 
 # node1 = Node('data')
@@ -26,3 +24,8 @@ def test_stack_init():
 
 def test_push():
     """Test if new node is added to the top of the linked list."""
+    from stack import Stack, Node
+    node1 = Node('this')
+    a_stack = Stack()
+    a_stack.push(node1)
+    assert a_stack.top == node1

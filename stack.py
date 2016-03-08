@@ -16,3 +16,9 @@ class Stack(object):
     def __init__(self, iterable=[]):
         """Init a stack."""
         self.top = None
+
+    def push(self, val):
+        """Add node to top of stack."""
+        new_node = Node(val)
+        self.top = new_node
+
