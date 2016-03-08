@@ -8,7 +8,6 @@ class Node(object):
         """Initialize node object."""
         self.data = data
         self.next = None
-        self.head = True
 
 
 class LinkedList(object):
@@ -16,7 +15,7 @@ class LinkedList(object):
 
     def __init__(self):
         """Init linked list object."""
-        pass
+        self.temp_list = []
 
     def insert(self, val):
         """Insert new node at head of list."""

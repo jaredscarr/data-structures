@@ -43,7 +43,7 @@ def test_pop():
     from linked_list import Node
     from linked_list import LinkedList
     from linked_list import test_pop
-    new_node = Node('cats', 'dogs', True)
+    new_node = Node('cats', 'dogs')
     assert some_list.pop() == 'cats'
 
 
@@ -51,8 +51,8 @@ def test_head_is_true():
     from linked_list import Node
     from linked_list import LinkedList
     from linked_list import head_is_true
-    new_node = Node('cats', 'dogs', True)
-    assert new_node.head == True
+    new_node = Node('cats', 'dogs')
+    assert new_node.head is True
 
 
 def test_insert(val):
@@ -60,9 +60,11 @@ def test_insert(val):
     from linked_list import Node
     from linked_list import LinkedList
     from linked_list import insert
-    new_node = Node('dogs', 'cats')
-    next_node = Node('cats')
-    assert new_node.next == next_node.data
+    node1 = Node('1', 'dogs')
+    node2 = Node('2', 'cats')
+    node3 = Node('3', 'people')
+    linked_list.insert(node1)
+    assert linked_list.head == node1
 
 
 def test_remove():
@@ -70,10 +72,10 @@ def test_remove():
     from linked_list import Node
     from linked_list import LinkedList
     from linked_list import remove
-    node1 = Node('1', 'dogs', True)
-    node2 = Node('2', 'cats', False)
-    node3 = Node('3', 'people', False)
-    assert node_bucket.remove(node2) == -1
+    node1 = Node('1', 'dogs')
+    node2 = Node('2', 'cats')
+    node3 = Node('3', 'people')
+    assert LinkedListObject.remove(node2) == -1
 
 
 def test_not_in_list():
@@ -82,7 +84,7 @@ def test_not_in_list():
     from linked_list import LinkedList
     from linked_list import search
     from linked_list import test_not_in_list
-    node1 = Node('1', 'dogs', True)
-    node2 = Node('2', 'cats', True)
-    node3 = Node('3', 'people', True)
+    node1 = Node('1', 'dogs')
+    node2 = Node('2', 'cats')
+    node3 = Node('3', 'people')
     assert fake_list.search('not here') == -1
