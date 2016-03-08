@@ -38,6 +38,17 @@ def test_display():
     assert fake_list.display() == ('dogs', 'cats')
 
 
+def test_pop():
+    """Remove the first value at the head of the list. Return value."""
+    from linked_list import Node
+    from linked_list import LinkedList
+    from linked_list import test_pop
+    new_node = Node('cats', 'dogs', True)
+    assert some_list.pop() == 'cats'
+    assert new_node.head == True
+
+
+
 def test_insert(val):
     """Test if inserts to head position."""
     from linked_list import Node
