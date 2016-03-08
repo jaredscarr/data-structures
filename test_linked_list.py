@@ -55,7 +55,7 @@ def test_head_is_true():
     assert new_node.head is True
 
 
-def test_insert(val):
+def test_insert():
     """Test if inserts to head position."""
     from linked_list import Node
     from linked_list import LinkedList
