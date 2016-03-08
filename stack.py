@@ -8,3 +8,11 @@ class Node(object):
         """Initialize node object."""
         self.data = data
         self.point_to = point_to
+
+
+class Stack(object):
+    """Implement a stack."""
+
+    def __init__(self, iterable=[]):
+        """Init a stack."""
+        self.top = None
