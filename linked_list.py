@@ -33,11 +33,11 @@ class LinkedList(object):
         current = self.head
         found = False
         while current and not found:
-            if current.get_val == val:
+            if current.val == val:
                 found = True
-                return current
-            current = current.get_next()
-        return -1
+                return current.val
+            current = current.next
+        return None
 
     def pop(self):
         """Remove node at head and returns the value."""

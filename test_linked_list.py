@@ -9,15 +9,12 @@ import pytest
 #     assert new_node.get_data() == 'caterpillar'
 
 
-# def test_search():
-#     """Search for node in list and return node."""
-#     from linked_list import Node
-#     from linked_list import LinkedList
-#     from linked_list import search
-#     fake_list = LinkedList()
-#     new_node = Node('chicken-monkey')
-#     fake_list.insert()
-#     assert fake_list.search('chicken-monkey') == new_node
+def test_search():
+    """Search for node in list and return node."""
+    from linked_list import LinkedList
+    fake_list = LinkedList()
+    fake_list.insert('that')
+    assert fake_list.search('that') == 'that'
 
 
 # def test_size():
