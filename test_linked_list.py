@@ -65,12 +65,24 @@ def test_insert(val):
     assert new_node.next == next_node.data
 
 
-def test_remove(node):
-    """Remove a specific node. Ret"""
+def test_remove():
+    """Remove a specific node."""
+    from linked_list import Node
+    from linked_list import LinkedList
+    from linked_list import remove
+    node1 = Node('1', 'dogs', True)
+    node2 = Node('2', 'cats', False)
+    node3 = Node('3', 'people', False)
+    assert node_bucket.remove(node2) == -1
 
 
-# def test_not_in_list():
-#     """Test if node is in list."""
-#     from linked_list import Node
-#     from linked_list import LinkedList
-#     from linked_list import test_not_in_list
+def test_not_in_list():
+    """Test if node is in list."""
+    from linked_list import Node
+    from linked_list import LinkedList
+    from linked_list import search
+    from linked_list import test_not_in_list
+    node1 = Node('1', 'dogs', True)
+    node2 = Node('2', 'cats', True)
+    node3 = Node('3', 'people', True)
+    assert fake_list.search('not here') == -1
