@@ -45,8 +45,14 @@ def test_pop():
     from linked_list import test_pop
     new_node = Node('cats', 'dogs', True)
     assert some_list.pop() == 'cats'
-    assert new_node.head == True
 
+
+def test_head_is_true():
+    from linked_list import Node
+    from linked_list import LinkedList
+    from linked_list import head_is_true
+    new_node = Node('cats', 'dogs', True)
+    assert new_node.head == True
 
 
 def test_insert(val):
@@ -57,3 +63,14 @@ def test_insert(val):
     new_node = Node('dogs', 'cats')
     next_node = Node('cats')
     assert new_node.next == next_node.data
+
+
+def test_remove(node):
+    """Remove a specific node. Ret"""
+
+
+# def test_not_in_list():
+#     """Test if node is in list."""
+#     from linked_list import Node
+#     from linked_list import LinkedList
+#     from linked_list import test_not_in_list
