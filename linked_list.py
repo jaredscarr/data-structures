@@ -10,16 +10,16 @@ class Node(object):
         self.next = None
 
         def get_data(self):
-        """Get data."""
-        return self.data
+            """Get data."""
+            return self.data
 
         def get_next(self):
-        """Get the reference to the next node."""
-        return self.next_node
+            """Get the reference to the next node."""
+            return self.next_node
 
         def set_next(self, new_next):
-        """Set the reference to the next node."""
-        self.next_node = new_next
+            """Set the reference to the next node."""
+            self.next_node = new_next
 
 
 class LinkedList(object):
@@ -35,9 +35,8 @@ class LinkedList(object):
         new_node.next
 
     def pop(self):
-        """Removes node at head and returns the value."""
+        """Remove node at head and returns the value."""
         pass
-
 
     def remove(self, node):
         """Remove specific node."""
@@ -45,4 +44,9 @@ class LinkedList(object):
         previous = None
         found = False
         while current.next is not None and not found:
-            current = current.data
+            if current.get_data == node:
+                current.get_next() == self.head
+                found = True
+            current = current.get_next()
+            previous = current.get_data()
+

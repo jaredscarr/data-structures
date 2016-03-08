@@ -48,6 +48,7 @@ def test_pop():
 
 
 def test_head_is_true():
+    """Test if the node is the head."""
     from linked_list import Node
     from linked_list import LinkedList
     from linked_list import head_is_true
@@ -63,8 +64,8 @@ def test_insert():
     node1 = Node('1', 'dogs')
     node2 = Node('2', 'cats')
     node3 = Node('3', 'people')
-    linked_list.insert(node1)
-    assert linked_list.head == node1
+    LinkedList.insert(node1)
+    assert LinkedList.head == node1
 
 
 def test_remove():
@@ -73,9 +74,10 @@ def test_remove():
     from linked_list import LinkedList
     from linked_list import remove
     node1 = Node('1', 'dogs')
-    node2 = Node('2', 'cats')
-    node3 = Node('3', 'people')
-    assert LinkedListObject.remove(node2) == -1
+    node2 = Node('dogs', 'cats')
+    node3 = Node('cats')
+    LinkedList.remove(node2)
+    assert LinkedList.search(node2) == -1
 
 
 def test_not_in_list():
