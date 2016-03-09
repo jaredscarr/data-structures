@@ -68,3 +68,12 @@ def test_remove():
     my_list.insert('b')
     my_list.remove('b')
     assert my_list.head.val == 'b'
+
+
+def test_iterable():
+    """Assert iterable upacks and inserts to list."""
+    from linked_list import LinkedList
+    x = [1, 2, 3]
+    my_list = LinkedList(x)
+    assert my_list.display() == (3, 2, 1)
+

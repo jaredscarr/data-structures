@@ -18,9 +18,15 @@ class LinkedList(object):
     """Handle creation of a linked list."""
 
     def __init__(self, itr=None):
-        """Init linked list object."""
+        """Init linked list object with optioanl itterable."""
         self.head = None
         self.itr = itr
+        if itr:
+            try:
+                for i in itr:
+                    self.insert(i)
+            except TypeError:
+                print('value is not an interable')
 
     def insert(self, val):
         """Insert new node at head of list."""
