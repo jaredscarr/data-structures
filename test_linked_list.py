@@ -26,24 +26,22 @@ def test_size():
     assert my_list.size() == 3
 
 
-# def test_display():
-#     """Print the list."""
-#     from linked_list import Node
-#     from linked_list import LinkedList
-#     from linked_list import test_display
-#     new_node = Node('dogs', 'cats')
-#     next_node = Node('cats')
-#     fake_list = [new_node, next_node]
-#     assert fake_list.display() == ('dogs', 'cats')
+def test_display():
+    """Print the list."""
+    from linked_list import LinkedList
+    my_list = LinkedList()
+    my_list.insert(1)
+    my_list.insert(2)
+    assert my_list.size() == len(my_list.display())
 
 
-# def test_pop():
-#     """Remove the first value at the head of the list. Return value."""
-#     from linked_list import Node
-#     from linked_list import LinkedList
-#     from linked_list import test_pop
-#     new_node = Node('cats', 'dogs')
-#     assert some_list.pop() == 'cats'
+def test_pop():
+    """Assert first value was removed and returned."""
+    from linked_list import LinkedList
+    my_list = LinkedList()
+    my_list.insert('data')
+    my_list.insert('more data')
+    assert my_list.pop() == 'more data'
 
 
 # def test_head_is_true():

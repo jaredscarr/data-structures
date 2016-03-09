@@ -42,8 +42,9 @@ class LinkedList(object):
     def pop(self):
         """Remove node at head and returns the value."""
         current = self.head
-        new_head = current.get_next()
+        new_head = current.next
         new_head = self.head
+        return current.val
 
     def remove(self, val):
         """Remove specific val."""
@@ -73,6 +74,16 @@ class LinkedList(object):
             counter += 1
             current = current.next
         return counter
+
+    def display(self):
+        """Print list as tuple."""
+        container = []
+        current = self.head
+        while current is not None:
+            container.append(current.val)
+            current = current.next
+        print(tuple(container))
+        return tuple(container)
 
 
 
