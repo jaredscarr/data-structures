@@ -1,20 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-# node1 = Node('data')
-# node2 = Node('dog')
-# node3 = Node('Mimmy')
-
-# STACK = Stack()
-
-
-def test_node_init():
-    """Test if Node object is there."""
-    from stack import Node
-    node = Node('data')
-    assert node.data == 'data'
-
-
 def test_stack_init():
     """Test if stack exists."""
     from stack import Stack
@@ -24,8 +10,8 @@ def test_stack_init():
 
 def test_push():
     """Test if new node is added to the top of the linked list."""
-    from stack import Stack, Node
-    node1 = Node('this')
+    from stack import Stack
     a_stack = Stack()
-    a_stack.push(node1)
-    assert a_stack.top == node1
+    a_stack.push('this')
+    a_stack.push('that')
+    assert a_stack.head == 'that'
