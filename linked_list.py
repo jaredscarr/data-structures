@@ -17,10 +17,10 @@ class Node(object):
 class LinkedList(object):
     """Handle creation of a linked list."""
 
-    def __init__(self):
+    def __init__(self, itr=None):
         """Init linked list object."""
-        # self.temp_list = []
         self.head = None
+        self.itr = itr
 
     def insert(self, val):
         """Insert new node at head of list."""
