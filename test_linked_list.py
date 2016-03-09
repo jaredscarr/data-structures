@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 
-# def test_node_class():
-#     """Test Node."""
-#     from linked_list import Node
-#     new_node = Node('caterpillar')
-#     assert new_node.get_data() == 'caterpillar'
+def test_node_class():
+    """Test Node."""
+    from linked_list import Node
+    new_node = Node('caterpillar')
+    assert new_node.val == 'caterpillar'
 
 
 def test_search():
@@ -44,13 +44,12 @@ def test_pop():
     assert my_list.pop() == 'more data'
 
 
-# def test_head_is_true():
-#     """Test if the node is the head."""
-#     from linked_list import Node
-#     from linked_list import LinkedList
-#     from linked_list import head_is_true
-#     new_node = Node('cats', 'dogs')
-#     assert new_node.head is True
+def test_head_is_true():
+    """Test if the node is the head."""
+    from linked_list import LinkedList
+    my_list = LinkedList()
+    my_list.insert('this')
+    assert my_list.head.val == 'this'
 
 
 def test_insert_empty():
@@ -69,14 +68,3 @@ def test_remove():
     my_list.insert('b')
     my_list.remove('b')
     assert my_list.head.val == 'b'
-
-# def test_not_in_list():
-#     """Test if node is in list."""
-#     from linked_list import Node
-#     from linked_list import LinkedList
-#     from linked_list import search
-#     from linked_list import test_not_in_list
-#     node1 = Node('1', 'dogs')
-#     node2 = Node('2', 'cats')
-#     node3 = Node('3', 'people')
-#     assert fake_list.search('not here') == -1
