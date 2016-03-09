@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 
 from linked_list import LinkedList
-
 from linked_list import Node
 
 
-class Stack(LinkedList):
+class Stack(object):
     """Create Stack class."""
 
-    def __init__(self, itr=None):
+    def __init__(self, iterable=None):
         """Initialize Stack object."""
         self.head = None
+        self.container = LinkedList()
 
     def push(self, val):
         """Push value to head of stack."""
-        new_node = Node(val)
-        if self.head is None:
-            self.head = new_node
-        else:
-            self.head.next = new_node
-            self.head = new_node
+        # self.container = LinkedList()
+        self.container.insert(val)
+
+    def pop(self):
+        """Remove and return the head of the stack."""
+        self.container.pop()

@@ -17,13 +17,13 @@ class Node(object):
 class LinkedList(object):
     """Handle creation of a linked list."""
 
-    def __init__(self, itr=None):
+    def __init__(self, iterable=None):
         """Init linked list object with optioanl itterable."""
         self.head = None
-        self.itr = itr
-        if itr:
+        self.iterable = iterable
+        if iterable:
             try:
-                for i in itr:
+                for i in iterable:
                     self.insert(i)
             except TypeError:
                 print('value is not an interable')
