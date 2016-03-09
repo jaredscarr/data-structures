@@ -16,12 +16,14 @@ def test_search():
     assert fake_list.search('that') == 'that'
 
 
-# def test_size():
-#     """Test if size of list is returned."""
-#     from linked_list import LinkedList
-#     from linked_list import size
-#     fake_list = ('20', 'bob', 'chicken-monkey', 'lizards')
-#     assert fake_list.size() == 4
+def test_size():
+    """Test if size of list is returned."""
+    from linked_list import LinkedList
+    my_list = LinkedList()
+    my_list.insert('something')
+    my_list.insert('something else')
+    my_list.insert('Oh what the hell, one more thing.')
+    assert my_list.size() == 3
 
 
 # def test_display():

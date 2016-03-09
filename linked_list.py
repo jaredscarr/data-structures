@@ -65,6 +65,16 @@ class LinkedList(object):
             else:
                 previous.next = current.next
 
+    def size(self):
+        """Return length of list."""
+        current = self.head
+        counter = 0
+        while current is not None:
+            counter += 1
+            current = current.next
+        return counter
+
+
 
 
 
