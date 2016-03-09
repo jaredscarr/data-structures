@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import pytest
 
 
 # def test_node_class():
@@ -62,17 +61,14 @@ def test_insert_empty():
     assert my_list.head is not None
 
 
-# def test_remove():
-#     """Remove a specific node."""
-#     from linked_list import Node
-#     from linked_list import LinkedList
-#     from linked_list import remove
-#     node1 = Node('1', 'dogs')
-#     node2 = Node('dogs', 'cats')
-#     node3 = Node('cats')
-#     LinkedList.remove(node2)
-#     assert LinkedList.search(node2) == -1
-
+def test_remove():
+    """Remove a specific node."""
+    from linked_list import LinkedList
+    my_list = LinkedList()
+    my_list.insert('Hey, Im a value')
+    my_list.insert('b')
+    my_list.remove('b')
+    assert my_list.head.val == 'b'
 
 # def test_not_in_list():
 #     """Test if node is in list."""

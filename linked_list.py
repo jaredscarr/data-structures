@@ -45,17 +45,30 @@ class LinkedList(object):
         new_head = current.get_next()
         new_head = self.head
 
+    def remove(self, val):
+        """Remove specific val."""
+        current = self.head
+        previous = None
+        found = False
+        while current is not None and not found:
+            if current.val == val:
+                previous = current
+                current = current.next
+                found = True
+            else:
+                current = current.next
+                previous = current.val
+            if current is None:
+                raise ValueError('Node not in list!')
+            if previous is None:
+                self.head = current.next
+            else:
+                previous.next = current.next
 
-    # def remove(self, node):
-    #     """Remove specific node."""
-    #     current = self.head
-    #     previous = None
-    #     found = False
-    #     while current is not None and not found: 
-    #         if current.get_val == node:
-    #             previous = current
-    #             current = current.get_next()
-    #             found = True
-    #         current = current.get_next()
-    #         previous = current.get_data()
-    #     if 
+
+
+
+
+
+
+
