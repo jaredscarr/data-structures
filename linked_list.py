@@ -49,28 +49,21 @@ class LinkedList(object):
         """Remove node at head and returns the value."""
         current = self.head
         new_head = current.next
-        new_head = self.head
+        self.head = new_head
         return current.val
 
     def remove(self, val):
         """Remove specific val."""
         current = self.head
-        previous = None
-        found = False
-        while current is not None and not found:
-            if current.val == val:
-                previous = current
-                current = current.next
-                found = True
-            else:
-                current = current.next
-                previous = current.val
-            if current is None:
-                raise ValueError('Node not in list!')
-            if previous is None:
-                self.head = current.next
-            else:
-                previous.next = current.next
+        if current.val == val:
+            self.head = current.next
+        else:
+            while current.next.val != val:
+                try:
+                    current = current.next
+                except AttributeError:
+                    print('That value is not in the list.')
+            current.next = current.next.next
 
     def size(self):
         """Return length of list."""
@@ -90,12 +83,3 @@ class LinkedList(object):
             current = current.next
         print(tuple(container))
         return tuple(container)
-
-
-
-
-
-
-
-
-
