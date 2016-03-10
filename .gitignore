@@ -63,3 +63,11 @@ target/
 
 #local files
 .DS_Store
+
+#Virtualenv
+lib/
+include/
+bin/
+pip-selfcheck.json
+share/
+
