@@ -18,6 +18,7 @@ class DoublyLinkedList(object):
         """Init linked list object with optioanl itterable."""
         self.head = None
         self.iterable = iterable
+        self.tail = None
         if iterable:
             try:
                 for i in iterable:
@@ -28,13 +29,29 @@ class DoublyLinkedList(object):
     def insert(self, val):
         """Insert new node at head of list."""
         new_node = Node(val)
-        if new_node.next is None:
+        if self.head is None:
             new_node.next = self.head
             self.head = new_node
+            self.tail = new_node
         else:
-            next_node = new_node.next
+            next_node = self.head
             next_node.previous = new_node
             self.head = new_node
+
+    def append(self, val):
+        """Add node to end of list."""
+        new_node = Node(val)
+        last = self.tail
+        if last is None:
+            new_node.next = self.head
+            self.head = new_node
+            self.tail = new_node
+        else:
+            last.next = new_node
+            new_node.previous = last
+            self.tail = new_node
+
+
 
 
 
