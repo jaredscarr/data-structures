@@ -52,7 +52,7 @@ def test_tail():
     assert my_list.tail.val == 4
 
 
-def test_append():
+def test_append_non_empty():
     """Assert node gets appended to the end of the lsit."""
     from dll import DoublyLinkedList
     my_list = DoublyLinkedList()
@@ -60,6 +60,22 @@ def test_append():
     my_list.append(8)
     assert my_list.tail.val == 8
 
+
+def test_append_empty():
+    """Assert node gets appended to empty list."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    my_list.append(4)
+    assert my_list.tail.val == 4
+
+
+def test_pop_non_empty():
+    """Assert first node gets removed and returned."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    my_list.insert(4)
+    my_list.insert(5)
+    assert my_list.pop() == 5
 
 
 

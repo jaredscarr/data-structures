@@ -51,6 +51,17 @@ class DoublyLinkedList(object):
             new_node.previous = last
             self.tail = new_node
 
+    def pop(self):
+        """Remove node at head and returns the value."""
+        if self.head is None:
+            raise AttributeError
+        current = self.head
+        new_head = current.next
+        new_head.previous = None
+        new_head = self.head
+        return current.val
+
+
 
 
 
@@ -69,12 +80,7 @@ class DoublyLinkedList(object):
     #         current = current.next
     #     return None
 
-    # def pop(self):
-    #     """Remove node at head and returns the value."""
-    #     current = self.head
-    #     new_head = current.next
-    #     new_head = self.head
-    #     return current.val
+
 
     # def remove(self, val):
     #     """Remove specific val."""
