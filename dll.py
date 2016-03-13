@@ -76,67 +76,21 @@ class DoublyLinkedList(object):
         last_node.previous = None
         return last_node.val
 
-
-
-
-
-    # def search(self, val):
-    #     """Search for value and return node."""
-    #     current = self.head
-    #     found = False
-    #     while current and not found:
-    #         if current.val == val:
-    #             found = True
-    #             return current.val
-    #         current = current.next
-    #     return None
-
-
-
-    # def remove(self, val):
-    #     """Remove specific val."""
-    #     current = self.head
-    #     previous = None
-    #     found = False
-    #     while current is not None and not found:
-    #         if current.val == val:
-    #             previous = current
-    #             current = current.next
-    #             found = True
-    #         else:
-    #             current = current.next
-    #             previous = current.val
-    #         if current is None:
-    #             raise ValueError('Node not in list!')
-    #         if previous is None:
-    #             self.head = current.next
-    #         else:
-    #             previous.next = current.next
-
-    # def size(self):
-    #     """Return length of list."""
-    #     current = self.head
-    #     counter = 0
-    #     while current is not None:
-    #         counter += 1
-    #         current = current.next
-    #     return counter
-
-    def display(self):
-        """Print list as tuple."""
-        container = []
+    def remove(self, val):
+        """Remove selected Node from the list."""
         current = self.head
-        while current is not None:
-            container.append(current.val)
-            current = current.next
-        print(tuple(container))
-        return tuple(container)
-
-
-
-
-
-
-
-
-
+        if current.val == val:
+            self.head = current.next
+            self.head.previous = None
+            current.next = None
+        elif self.tail.val == val:
+            self.tail = self.tail.previous
+            self.tail.next = None
+        else:
+            while current.next.val != val:
+                try:
+                    current = current.next
+                except AttributeError:
+                    print('That value is not here.')
+            current.next = current.next.next
+            current.next.previous = current
