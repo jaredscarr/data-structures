@@ -37,4 +37,12 @@ def test_dequeue_nonempty():
     assert my_queue.container.tail.val == 'chicken'
 # def test_peek
 
-# def test_size
+
+def test_size():
+    """Test if the size method works."""
+    from queue import Queue
+    my_queue = Queue()
+    my_queue.enqueue('monkey')
+    my_queue.enqueue('chicken')
+    my_queue.enqueue('baby')
+    assert my_queue.size() == 3
