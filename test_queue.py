@@ -35,7 +35,16 @@ def test_dequeue_nonempty():
     my_queue.enqueue('chicken')
     my_queue.dequeue('monkey')
     assert my_queue.container.tail.val == 'chicken'
-# def test_peek
+
+
+def test_peek():
+    """Return the next value in the queue."""
+    from queue import Queue
+    my_queue = Queue()
+    my_queue.enqueue('monkey')
+    my_queue.enqueue('chicken')
+    my_queue.enqueue('baby')
+    assert my_queue.peek() == 'chicken'
 
 
 def test_size():

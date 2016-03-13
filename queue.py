@@ -17,6 +17,12 @@ class Queue(object):
         """Remove item in the list."""
         self.container.remove(val)
 
+    def peek(self):
+        """Check the next node in the queue."""
+        if self.container.tail is None:
+            return None
+        return self.container.tail.previous.val
+
     def size(self):
         """Return size of container."""
         current = self.container.head
