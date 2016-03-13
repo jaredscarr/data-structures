@@ -49,7 +49,7 @@ class LinkedList(object):
         """Remove node at head and returns the value."""
         current = self.head
         new_head = current.next
-        new_head = self.head
+        self.head = new_head
         return current.val
 
     def remove(self, val):
