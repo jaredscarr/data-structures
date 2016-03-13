@@ -64,8 +64,17 @@ class DoublyLinkedList(object):
         current.next = None
         return current.val
 
-
-
+    def shift(self):
+        """Remove node at the tail and return the value."""
+        if self.tail is None:
+            raise AttributeError
+            print('You can shift an empty list!')
+        last_node = self.tail
+        new_tail = self.tail.previous
+        new_tail.next = None
+        self.tail = new_tail
+        last_node.previous = None
+        return last_node.val
 
 
 
