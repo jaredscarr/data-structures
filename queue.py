@@ -12,3 +12,7 @@ class Queue(object):
     def enqueue(self, val):
         """Insert into front position."""
         self.container.insert(val)
+
+    def dequeue(self, val):
+        """Remove item in the list."""
+        self.container.remove(val)
