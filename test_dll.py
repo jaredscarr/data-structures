@@ -78,5 +78,14 @@ def test_pop_non_empty():
     assert my_list.pop() == 5
 
 
+def test_shift():
+    """Assert shift works on non empty list."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    my_list.insert(1)
+    my_list.insert(2)
+    my_list.insert(3)
+    assert my_list.shift() == 1
+
 
 
