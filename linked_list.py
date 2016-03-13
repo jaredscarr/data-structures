@@ -21,7 +21,7 @@ class LinkedList(object):
         """Init linked list object with optioanl itterable."""
         self.head = None
         self.iterable = iterable
-        if iterable:
+        if iterable is not None:
             try:
                 for i in iterable:
                     self.insert(i)
