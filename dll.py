@@ -36,6 +36,7 @@ class DoublyLinkedList(object):
         else:
             next_node = self.head
             next_node.previous = new_node
+            new_node.next = next_node
             self.head = new_node
 
     def append(self, val):
@@ -55,12 +56,13 @@ class DoublyLinkedList(object):
         """Remove node at head and returns the value."""
         if self.head is None:
             raise AttributeError
+            print('err')
         current = self.head
-        new_head = current.next
+        new_head = self.head.next
         new_head.previous = None
-        new_head = self.head
+        self.head = new_head
+        current.next = None
         return current.val
-
 
 
 
