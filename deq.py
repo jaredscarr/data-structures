@@ -21,6 +21,8 @@ class Deque(object):
 
     def pop(self):
         """Return and remove head from the list."""
-        self.container.pop()
+        self.container.shift()
+
+)
 
 

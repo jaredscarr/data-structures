@@ -44,12 +44,14 @@ def test_pop_empty():
 
 
 def test_pop():
-    """Assert pops val from the head."""
+    """Assert pops val from the tails."""
     from deq import Deque
     my_list = Deque()
     my_list.append_left('thies')
     my_list.append_left('thiat')
-    assert my_list.pop() == 'thiat'
+    my_list.append_left('strongbad')
+    my_list.pop()
+    assert my_list.container.head.val == 'strongbad'
 
 
 
