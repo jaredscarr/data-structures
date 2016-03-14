@@ -36,6 +36,7 @@ class DoublyLinkedList(object):
         else:
             next_node = self.head
             next_node.previous = new_node
+            new_node.next = next_node
             self.head = new_node
 
     def append(self, val):
@@ -55,77 +56,41 @@ class DoublyLinkedList(object):
         """Remove node at head and returns the value."""
         if self.head is None:
             raise AttributeError
+            print('err')
         current = self.head
-        new_head = current.next
+        new_head = self.head.next
         new_head.previous = None
-        new_head = self.head
+        self.head = new_head
+        current.next = None
         return current.val
 
+    def shift(self):
+        """Remove node at the tail and return the value."""
+        if self.tail is None:
+            raise AttributeError
+            print('You can shift an empty list!')
+        last_node = self.tail
+        new_tail = self.tail.previous
+        new_tail.next = None
+        self.tail = new_tail
+        last_node.previous = None
+        return last_node.val
 
-
-
-
-
-
-
-
-    # def search(self, val):
-    #     """Search for value and return node."""
-    #     current = self.head
-    #     found = False
-    #     while current and not found:
-    #         if current.val == val:
-    #             found = True
-    #             return current.val
-    #         current = current.next
-    #     return None
-
-
-
-    # def remove(self, val):
-    #     """Remove specific val."""
-    #     current = self.head
-    #     previous = None
-    #     found = False
-    #     while current is not None and not found:
-    #         if current.val == val:
-    #             previous = current
-    #             current = current.next
-    #             found = True
-    #         else:
-    #             current = current.next
-    #             previous = current.val
-    #         if current is None:
-    #             raise ValueError('Node not in list!')
-    #         if previous is None:
-    #             self.head = current.next
-    #         else:
-    #             previous.next = current.next
-
-    # def size(self):
-    #     """Return length of list."""
-    #     current = self.head
-    #     counter = 0
-    #     while current is not None:
-    #         counter += 1
-    #         current = current.next
-    #     return counter
-
-    def display(self):
-        """Print list as tuple."""
-        container = []
+    def remove(self, val):
+        """Remove selected Node from the list."""
         current = self.head
-        while current is not None:
-            container.append(current.val)
-            current = current.next
-        print(tuple(container))
-        return tuple(container)
-
-
-
-
-
-
-
-
-
+        if current.val == val:
+            self.head = current.next
+            self.head.previous = None
+            current.next = None
+        elif self.tail.val == val:
+            self.tail = self.tail.previous
+            self.tail.next = None
+        else:
+            while current.next.val != val:
+                try:
+                    current = current.next
+                except AttributeError:
+                    print('That value is not here.')
+            current.next = current.next.next
+            current.next.previous = current

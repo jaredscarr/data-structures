@@ -21,7 +21,7 @@ class LinkedList(object):
         """Init linked list object with optioanl itterable."""
         self.head = None
         self.iterable = iterable
-        if iterable:
+        if iterable is not None:
             try:
                 for i in iterable:
                     self.insert(i)
@@ -55,22 +55,15 @@ class LinkedList(object):
     def remove(self, val):
         """Remove specific val."""
         current = self.head
-        previous = None
-        found = False
-        while current is not None and not found:
-            if current.val == val:
-                previous = current
-                current = current.next
-                found = True
-            else:
-                current = current.next
-                previous = current.val
-            if current is None:
-                raise ValueError('Node not in list!')
-            if previous is None:
-                self.head = current.next
-            else:
-                previous.next = current.next
+        if current.val == val:
+            self.head = current.next
+        else:
+            while current.next.val != val:
+                try:
+                    current = current.next
+                except AttributeError:
+                    print('That value is not in the list.')
+            current.next = current.next.next
 
     def size(self):
         """Return length of list."""
@@ -90,12 +83,3 @@ class LinkedList(object):
             current = current.next
         print(tuple(container))
         return tuple(container)
-
-
-
-
-
-
-
-
-

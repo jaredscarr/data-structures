@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import pytest
 
 
 def test_node_class():
@@ -60,14 +61,33 @@ def test_insert_empty():
     assert my_list.head is not None
 
 
-def test_remove():
-    """Remove a specific node."""
+def test_insert():
+    """Test insert works."""
     from linked_list import LinkedList
     my_list = LinkedList()
-    my_list.insert('Hey, Im a value')
+    my_list.insert('a')
     my_list.insert('b')
+    my_list.insert('c')
+    assert my_list.head.val == 'c'
+
+
+def test_remove():
+    """Test if node is in the middle it removes that val."""
+    from linked_list import LinkedList
+    my_list = LinkedList()
+    my_list.insert('a')
+    my_list.insert('b')
+    my_list.insert('c')
     my_list.remove('b')
-    assert my_list.head.val == 'b'
+    assert my_list.head.next.val == 'a'
+
+
+def test_remove_error():
+    """Test if error raised if the node does not exist."""
+    from linked_list import LinkedList
+    with pytest.raises(AttributeError):
+        my_list = LinkedList()
+        my_list.remove('test')
 
 
 def test_iterable():
@@ -76,4 +96,3 @@ def test_iterable():
     x = [1, 2, 3]
     my_list = LinkedList(x)
     assert my_list.display() == (3, 2, 1)
-
