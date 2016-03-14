@@ -54,5 +54,44 @@ def test_pop():
     assert my_list.container.head.val == 'strongbad'
 
 
+def test_pop_left():
+    """Assert that it removes and returns the node at the head of the deque."""
+    from deq import Deque
+    my_list = Deque()
+    my_list.append_left('thies')
+    my_list.append_left('thiat')
+    my_list.append_left('strongbad')
+    my_list.pop_left()
+    assert my_list.container.head.val == 'thiat'
 
 
+def test_peek():
+    """Test if peek checks the value behind it."""
+    from deq import Deque
+    my_list = Deque()
+    my_list.append_left('thies')
+    my_list.append_left('thiat')
+    my_list.append_left('strongbad')
+    my_list.peek()
+    assert my_list.peek() == 'thies'
+
+
+def test_peek_left():
+    """Test if peek_left looks at the head of the deque."""
+    from deq import Deque
+    my_list = Deque()
+    my_list.append_left('thies')
+    my_list.append_left('thiat')
+    my_list.append_left('strongbad')
+    my_list.peek_left()
+    assert my_list.peek_left() == 'strongbad'
+
+
+def test_size():
+    """Test if the size method works."""
+    from deq import Deque
+    my_deque = Deque()
+    my_deque.append_left('monkey')
+    my_deque.append_left('chicken')
+    my_deque.append_left('baby')
+    assert my_deque.size() == 3
