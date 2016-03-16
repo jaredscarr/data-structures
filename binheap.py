@@ -6,11 +6,9 @@ class Heap(object):
         """Initialize Heap."""
         if iterable:
             self.container = list(iterable)
+            self.container.insert(0, '')
         else:
-            self.container = []
-        # self.parent = self.container[i // 2]
-        # self.left = self.container[2*i]
-        # self.right = self.container[2*i+1]
+            self.container = ['']
 
     def left(self, index):
         """Return left child of parent."""
