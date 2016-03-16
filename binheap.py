@@ -20,11 +20,12 @@ class Heap(object):
         """Return right child of parent."""
         return self.container[index * 2 + 1]
 
+    def parent(self, index):
+        """Return parent of a child."""
+        return self.container[index // 2]
+
     # def heapify(self):
 
     # def pop(self):
 
     # def push(self):
-
-
-

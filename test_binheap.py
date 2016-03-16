@@ -21,6 +21,13 @@ def test_right():
     my_heap = Heap(['', 1, 2, 3, 4])
     assert my_heap.right(1) == 3
 
+
+def test_parent():
+    """Assert if the item in the list is a parent."""
+    from binheap import Heap
+    my_heap = Heap(['', 1, 2, 3, 4])
+    assert my_heap.parent(2) == 1
+
 # def test_parent():
 
 # def test_heapify():
