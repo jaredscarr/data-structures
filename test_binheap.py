@@ -26,10 +26,11 @@ def test_parent():
     my_heap = Heap([1, 2, 3, 4])
     assert my_heap.parent(3) == 'a'
 
-# def test_parent():
 
-# def test_heapify():
-#     """Test weather or not the greater of two values are swapped."""
-#     from binheap import Heap
-#     my_heap = Heap(['', 1, 10, 6, 8, 3, 9])
-#     assert swap(some_list) == [1, 3, 6, 8, 9]
+def test_push():
+    """Test if value to the heap."""
+    from binheap import Heap
+    my_heap = Heap()
+    my_heap.push(98)
+    my_heap.push(24)
+    assert my_heap[0] == 98

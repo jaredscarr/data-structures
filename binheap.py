@@ -23,13 +23,26 @@ class Heap(object):
         """Return parent of a child."""
         return self.container[index // 2 - 1]
 
+     def swappy(self, value):
+        val_index = self.container.index(value)
+        temp_location = self.container[val_index]
+        current_parent = parent(val_index)
+        self.container[current_parent] = value
+        self.container[val_index] = temp_location
+        return self.container[current_parent]
 
 
-# def swappy_thing(self, child, parent):
-#     while self.root < startpos:
-#         temp = self.container[child]
-#         self.container[parent] = self.container[child]
-#         self.container[parent] = temp
+
+        self.container[parent] = self.container[child]
+        self.container[parent] = temp
+
+    def push(self, value):
+        """Push a value to the Heap and maintain Heap structure."""
+        heap = self.container
+        heap.append(value)
+        current_parent = parent(value)
+        while current_parent < value:
+            current_parent = swappy(value)  
 
 
 #     def bubble_up():
@@ -56,7 +69,7 @@ class Heap(object):
 
 #     # def heapify(self):
 
-#     # def pop(self):
+
 
 #     # def push(self):
 
