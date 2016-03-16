@@ -8,18 +8,23 @@ class Heap(object):
             self.container = list(iterable)
         else:
             self.container = []
-        self.parent = self.container[i//2]
-        self.left = self.container[2*i]
-        self.right = self.container[2*i+1]
-    
+        # self.parent = self.container[i // 2]
+        # self.left = self.container[2*i]
+        # self.right = self.container[2*i+1]
 
-    def left():
-    def right():
-    def heapify(self):
+    def left(self, index):
+        """Return left child of parent."""
+        return self.container[index * 2]
 
-    def pop(self):
+    def right(self, index):
+        """Return right child of parent."""
+        return self.container[index * 2 + 1]
 
-    def push(self):
+    # def heapify(self):
+
+    # def pop(self):
+
+    # def push(self):
 
 
 
