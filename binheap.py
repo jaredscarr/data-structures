@@ -9,7 +9,7 @@ class Heap(object):
         #     for i in self.container:
         #         self.push(i)
         # else:
-        self.container = ['a', 'b', 'c', 'd']
+        self.container = []
 
     def left(self, index):
         """Return left child of parent."""
@@ -26,21 +26,20 @@ class Heap(object):
     def swap(self, value):
         """Swap parent and child."""
         val_index = self.container.index(value)
-        temp_location = self.container[val_index]
         current_parent = self.parent(val_index)
         self.container[current_parent] = value
-        self.container[val_index] = temp_location
+        self.container[val_index] = current_parent
         return self.container[current_parent]
 
     def push(self, value):
         """Push a value to the Heap and maintain Heap structure."""
-        # import pdb; pdb.set_trace
         heap = self.container
         heap.append(value)
-        current_parent = self.parent(value)
-        while current_parent < value:
-            current_parent = self.swap(value)
-
+        current_parent = self.parent(self.container.index(value))
+        while value > current_parent:
+            print(heap)
+            value = self.swap(value)
+            current_parent = self.parent(self.container.index(value))
 
 #     def bubble_up():
 #         swappy_thing(left(index), parent(index))
