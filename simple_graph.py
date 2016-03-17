@@ -17,3 +17,7 @@ class Graph(object):
     def add_node(self, value):
         """Add node to Graph."""
         self.container.setdefault(value, [])
+
+    def has_node(self, value):
+        """Check if node is in the graph."""
+        return value in self.container
