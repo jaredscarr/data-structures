@@ -14,4 +14,6 @@ class Graph(object):
         """Init Graph."""
         self.container = {}
 
-    
+    def add_node(self, value):
+        """Add node to Graph."""
+        self.container.setdefault(value, [])
