@@ -35,4 +35,3 @@ class Graph(object):
         vals = list(self.container.values())
         new_list = []
         for items in vals:
-            

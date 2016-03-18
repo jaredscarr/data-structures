@@ -1,6 +1,13 @@
 # data-structures
 
-TODO:
+Data structure assignments by Jared Scarr and Daniel Zwelling.
 
-Update readme
-TOX tests
+Includes the following:
+
+Linked List
+Doubly Linked List
+Stack
+Deque
+BinHeap
+Priority Queue
+Graph
