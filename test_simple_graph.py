@@ -92,3 +92,22 @@ def test_neighbors_KeyError():
     with pytest.raises(KeyError):
         graph = Graph()
         graph.get_neighbors('monkey')
+
+
+def test_adjacent_true():
+    """Test if node returns true."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('chicken')
+    graph.add_node('egg')
+    graph.add_edge('egg', 'chicken')
+    assert graph.adjacent('egg', 'chicken') is True
+
+
+def test_adjacent_false():
+    """Test if returns false."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('chicken')
+    graph.add_node('egg')
+    assert graph.adjacent('egg', 'chicken') is False

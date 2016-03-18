@@ -57,3 +57,8 @@ class Graph(object):
             return self.container[node]
         except KeyError:
             raise KeyError('That node is not in the graph.')
+
+    def adjacent(self, node1, node2):
+        """Return weather or not two nodes are adjacent."""
+        if self.has_node(node1) and self.has_node(node2):
+            return node2 in self.container[node1]
