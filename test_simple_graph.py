@@ -74,3 +74,21 @@ def test_delete_edge_value_error():
         graph = Graph()
         graph.add_node('egg')
         graph.delete_edge('egg', 'dog')
+
+
+def test_neighbors():
+    """Return the list of all nodes connect to node."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('chicken')
+    graph.add_node('egg')
+    graph.add_edge('egg', 'chicken')
+    assert graph.get_neighbors('egg') == ['chicken']
+
+
+def test_neighbors_KeyError():
+    """Test if KeyError raised."""
+    from simple_graph import Graph
+    with pytest.raises(KeyError):
+        graph = Graph()
+        graph.get_neighbors('monkey')

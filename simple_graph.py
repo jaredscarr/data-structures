@@ -47,6 +47,13 @@ class Graph(object):
         try:
             self.container[node1].remove(node2)
         except KeyError:
-            raise KeyError
+            raise KeyError('The key you chose does not exist.')
         except ValueError:
-            raise ValueError
+            raise ValueError('The second node is not in the list of values')
+
+    def get_neighbors(self, node):
+        """Return a list of neighbors."""
+        try:
+            return self.container[node]
+        except KeyError:
+            raise KeyError('That node is not in the graph.')
