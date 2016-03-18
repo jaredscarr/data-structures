@@ -35,3 +35,13 @@ def test_add_edge():
     graph.add_node('egg')
     graph.add_edge('egg', 'chicken')
     assert 'chicken' in graph.container['egg']
+
+
+def test_delete_node():
+    """Delete selected node."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('chicken')
+    graph.add_node('egg')
+    graph.delete_node('chicken')
+    assert 'chicken' not in graph.container

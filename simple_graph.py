@@ -35,3 +35,11 @@ class Graph(object):
         edges = [(key, value) for key in self.container for value in self.container[key]]
         return edges
 
+    def delete_node(self, node):
+        """Delete a node from the graph or return not in graph."""
+        if self.has_node(node) is False:
+            print('That node does not exist in the graph.')
+        else:
+            del self.container[node]
+
+    
