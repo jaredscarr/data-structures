@@ -42,4 +42,11 @@ class Graph(object):
         else:
             del self.container[node]
 
-    
+    def delete_edge(self, node1, node2):
+        """Delete an edge from the graph or return not in graph."""
+        try:
+            self.container[node1].remove(node2)
+        except KeyError:
+            raise KeyError
+        except ValueError:
+            raise ValueError
