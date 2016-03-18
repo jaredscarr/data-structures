@@ -32,6 +32,6 @@ class Graph(object):
 
     def edges(self):
         """Display a list of edges in the graph."""
-        vals = list(self.container.values())
-        new_list = []
-        for items in vals:
+        edges = [(key, value) for key in self.container for value in self.container[key]]
+        return edges
+
