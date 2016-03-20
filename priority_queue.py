@@ -41,3 +41,7 @@ class PriorityQueue(object):
             self.container[index - 1] = self.container[most_huge - 1]
             self.container[most_huge - 1] = value
             self.sort_to_leaf(most_huge - 1)
+
+    def peek(self):
+        """Returns the highest priority item in the queue."""
+        return self.container[0]

@@ -19,3 +19,11 @@ def test_pop():
     pq.container = [(2, 'fish'), (3, 'sticks'), (4, 'chix'), (10, 'ticks')]
     pq.pop()
     assert pq.container == [(10, 'ticks'), (3, 'sticks'), (4, 'chix')]
+
+
+def test_peek():
+    """Test if highest priority in queue is returned."""
+    from priority_queue import PriorityQueue
+    pq = PriorityQueue()
+    pq.container = [(2, 'fish'), (3, 'sticks'), (4, 'chix'), (10, 'ticks')]
+    assert pq.peek() == (2, 'fish')
