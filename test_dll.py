@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import pytest
 
 
 def test_node():
@@ -88,4 +89,28 @@ def test_shift():
     assert my_list.shift() == 1
 
 
+def test_shift_empty():
+    """Assert shift works on empty list."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    with pytest.raises(AttributeError):
+        my_list.shift()
 
+
+def test_remove():
+    """Test if selected Node is removed from list."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    my_list.insert('last')
+    my_list.insert('second')
+    my_list.insert('head')
+    my_list.remove('second')
+    assert my_list.head.next.val == 'last'
+
+
+def test_remove_empty():
+    """Assert remove works on empty list."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    with pytest.raises(AttributeError):
+        my_list.remove('chicken')
