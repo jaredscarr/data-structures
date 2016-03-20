@@ -62,7 +62,7 @@ class LinkedList(object):
                 try:
                     current = current.next
                 except AttributeError:
-                    print('That value is not in the list.')
+                    print('That node is not in the list.')
             current.next = current.next.next
 
     def size(self):
