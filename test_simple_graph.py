@@ -1,8 +1,31 @@
 # -*- coding: utf-8 -*-
 import pytest
-# def test_display():
-#     """Test that the graph displays."""
-#     from simple_graph import 
+
+
+@pytest.fixture()
+def non_cycle_graph():
+    """Fixture that makes a full graph."""
+    from graph import Graph
+    non_cycle = Graph()
+    non_cycle.add_edge("a", "b")
+    non_cycle.add_edge("c", "d")
+    non_cycle.add_edge("c", "b")
+    return non_cycle 
+
+
+@pytest.fixture()
+def cycle_graph():
+    """Fixture that makes a full graph."""
+    from graph import Graph
+    cycle_graph = Graph()
+    cycle_graph.add_edge("a", "b")
+    cycle_graph.add_edge("c", "d")
+    cycle_graph.add_edge("d", "a")
+    cycle_graph.add_edge("a", "d")
+    cycle_graph.add_edge("b", "d")
+    cycle_graph.add_edge("d", "a")
+    return cycle_graph 
+
 
 def test_add_node():
     """Test if node added to graph."""
@@ -111,3 +134,25 @@ def test_adjacent_false():
     graph.add_node('chicken')
     graph.add_node('egg')
     assert graph.adjacent('egg', 'chicken') is False
+
+
+def test_df_non_cycle(non_cycle):
+    """Test if graph is traversed."""
+    assert len(non_cycle.depth_first('a')) == len(non_cycle.nodes())
+
+
+def test_df_cycle(cycle_graph):
+    """Test that function can break out of cycle."""
+    assert len(cycle_graph.depth_first('a')) == len(cycle_graph.nodes())
+
+
+def test_empty_graph():
+    """Test that function works on empty graph."""
+    from simple_graph import Graph
+    graph = Graph()
+    assert len(graph.depth_first('a')) == len(graph.nodes())
+
+# def test_bf_non_cycle
+
+
+# def test_bf_cycle

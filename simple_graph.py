@@ -62,3 +62,8 @@ class Graph(object):
         """Return weather or not two nodes are adjacent."""
         if self.has_node(node1) and self.has_node(node2):
             return node2 in self.container[node1]
+
+    def depth_first(self, start):
+        """Return list of visited nodes."""
+        visited = [start]
+        
