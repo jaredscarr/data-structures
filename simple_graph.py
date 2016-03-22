@@ -66,10 +66,8 @@ class Graph(object):
 
     def depth_first(self, start, visited=[]):
         """Return list of visited nodes."""
-        import pdb; pdb.set_trace()
         visited = visited + [start]
         for edge in self.container[start]:
             if edge not in visited:
-                self.depth_first(edge, visited)
-            else:
-                return visited
+                visited = self.depth_first(edge, visited)
+        return visited
