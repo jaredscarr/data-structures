@@ -25,6 +25,7 @@ class Graph(object):
     def add_edge(self, pointer_node, destination_node):
         """Add edge between two nodes. If not in graph add nodes and edge."""
         self.container.setdefault(pointer_node, []).append(destination_node)
+        self.add_node(destination_node)
 
     def nodes(self):
         """Display a list of Nodes in the graph."""
@@ -63,7 +64,12 @@ class Graph(object):
         if self.has_node(node1) and self.has_node(node2):
             return node2 in self.container[node1]
 
-    def depth_first(self, start):
+    def depth_first(self, start, visited=[]):
         """Return list of visited nodes."""
-        visited = [start]
-        
+        import pdb; pdb.set_trace()
+        visited = visited + [start]
+        for edge in self.container[start]:
+            if edge not in visited:
+                self.depth_first(edge, visited)
+            else:
+                return visited
