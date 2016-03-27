@@ -76,15 +76,6 @@ def test_delete_edge_key_error():
         graph.delete_edge('dog', 'egg')
 
 
-def test_delete_edge_value_error():
-    """Test if ValueError exception is raised."""
-    from simple_graph import Graph
-    with pytest.raises(ValueError):
-        graph = Graph()
-        graph.add_node('egg')
-        graph.delete_edge('egg', 'dog')
-
-
 def test_neighbors():
     """Return the list of all nodes connect to node."""
     from simple_graph import Graph
