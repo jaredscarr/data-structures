@@ -151,6 +151,7 @@ def test_df_two_nodes():
 
 
 def test_df_three_nodes():
+    """Test if depth first with four nodes."""
     from simple_graph import Graph
     graph = Graph()
     graph.add_node('a')
@@ -163,42 +164,24 @@ def test_df_three_nodes():
     assert graph.depth_first('a') == ['a', 'b', 'c', 'd']
 
 
-# def test_df_three_nodes_complex():
-#     from simple_graph import Graph
-#     graph = Graph()
-#     graph.add_node('a')
-#     graph.add_node('b')
-#     graph.add_node('c')
-#     graph.add_node('d')
-#     # graph.add_node('e')
-#     # graph.add_node('c')
-#     graph.add_edge('a', 'c')
-#     graph.add_edge('a', 'b')
-#     graph.add_edge('c', 'b')
-#     graph.add_edge('d', 'a')
-#     # graph.add_edge('b', 'd')
-#     assert graph.depth_first('a') == ['a', 'c', 'b']
-
-
 def test_df_three_nodes_complex():
+    """Test depth first with even more nodes."""
     from simple_graph import Graph
     graph = Graph()
     graph.add_node('a')
     graph.add_node('b')
     graph.add_node('c')
     graph.add_node('d')
-    # graph.add_node('e')
-    # graph.add_node('c')
     graph.add_edge('a', 'c')
     graph.add_edge('a', 'd')
     graph.add_edge('b', 'c')
     graph.add_edge('b', 'a')
     graph.add_edge('d', 'b')
-    # graph.add_edge('b', 'd')
     assert graph.depth_first('a') == ['a', 'c', 'd', 'b']
 
 
 def test_bf_one_node():
+    """Test breadth first traversal with one node."""
     from simple_graph import Graph
     graph = Graph()
     graph.add_node('a')
@@ -206,6 +189,7 @@ def test_bf_one_node():
 
 
 def test_bf_two_nodes():
+    """Test breadth first with two nodes."""
     from simple_graph import Graph
     graph = Graph()
     graph.add_node('a')
@@ -215,6 +199,7 @@ def test_bf_two_nodes():
 
 
 def test_bf_three_nodes():
+    """Test breadth first with three nodes."""
     from simple_graph import Graph
     graph = Graph()
     graph.add_node('a')
