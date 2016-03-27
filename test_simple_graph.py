@@ -205,9 +205,24 @@ def test_bf_three_nodes():
     graph.add_node('a')
     graph.add_node('b')
     graph.add_node('c')
-    graph.add_node('d')
+    # graph.add_node('d')
     graph.add_edge('a', 'b')
     graph.add_edge('a', 'c')
     print(graph.container)
-    # assert graph.breadth_first('a') == ['a', 'b', 'c']
+    assert graph.breadth_first('a') == ['a', 'b', 'c']
 
+
+def test_bf_five_nodes():
+    """Test breadth first with 5 nodes."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('c')
+    graph.add_node('d')
+    graph.add_node('e')
+    graph.add_edge('a', 'b')
+    graph.add_edge('a', 'c')
+    graph.add_edge('a', 'd')
+    graph.add_edge('b', 'e')
+    assert graph.breadth_first('a') == ['a', 'b', 'c', 'd', 'e']
