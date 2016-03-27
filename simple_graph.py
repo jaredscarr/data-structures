@@ -20,7 +20,6 @@ class Graph(object):
             pass
         else:
             self.container[value] = {}
-        # self.container.setdefault(value, [])
 
     def has_node(self, value):
         """Check if node is in the graph."""
@@ -28,9 +27,6 @@ class Graph(object):
 
     def add_edge(self, pointer_node, destination_node, weight=0):
         """Add edge between two nodes. If not in graph add nodes and edge."""
-        # if destination_node not in self.container:
-        #     self.add_node(destination_node)
-        # self.container.setdefault(pointer_node, []).append(destination_node)
         if pointer_node not in self.container:
             self.add_node(pointer_node)
         if destination_node not in self.container:
@@ -59,7 +55,7 @@ class Graph(object):
     def delete_edge(self, node1, node2):
         """Delete an edge from the graph or return not in graph."""
         try:
-            self.container[node1].remove(node2)
+            del self.container[node1][node2]
         except KeyError:
             raise KeyError('The key you chose does not exist.')
         except ValueError:

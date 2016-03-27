@@ -64,7 +64,7 @@ def test_delete_edge_in_graph():
     graph.add_node('egg')
     graph.add_edge('egg', 'chicken')
     graph.delete_edge('egg', 'chicken')
-    assert graph.container['egg'] == []
+    assert graph.container['egg'] == {}
 
 
 def test_delete_edge_key_error():
