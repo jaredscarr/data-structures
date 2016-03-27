@@ -10,7 +10,7 @@ def non_cycle_graph():
     non_cycle.add_edge("a", "b")
     non_cycle.add_edge("c", "d")
     non_cycle.add_edge("c", "b")
-    return non_cycle 
+    return non_cycle
 
 
 @pytest.fixture()
@@ -21,7 +21,7 @@ def cycle_graph():
     cycle_graph.add_edge("a", "b")
     cycle_graph.add_edge("c", "d")
     cycle_graph.add_edge("d", "a")
-    return cycle_graph 
+    return cycle_graph
 
 
 def test_add_node():
@@ -133,23 +133,77 @@ def test_adjacent_false():
     assert graph.adjacent('egg', 'chicken') is False
 
 
-def test_df_non_cycle(non_cycle_graph):
+def test_df_non_cycle():
     """Test if graph is traversed."""
-    assert non_cycle_graph.depth_first('a') == ['a', 'b', 'c', 'd']
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    assert graph.depth_first('a') == ['a']
 
 
-# def test_df_cycle(cycle_graph):
-#     """Test that function can break out of cycle."""
-#     assert len(cycle_graph.depth_first('a')) == len(cycle_graph.nodes())
+def test_df_two_nodes():
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_edge('a', 'b')
+    assert graph.depth_first('a') == ['a', 'b']
 
 
-# def test_empty_graph():
-#     """Test that function works on empty graph."""
-#     from simple_graph import Graph
-#     graph = Graph()
-#     assert len(graph.depth_first('a')) == len(graph.nodes())
+def test_df_three_nodes():
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('d')
+    graph.add_edge('a', 'b')
+    graph.add_node('c')
+    graph.add_edge('b', 'c')
+    graph.add_edge('b', 'd')
+    assert graph.depth_first('a') == ['a', 'b', 'c', 'd']
 
-# def test_bf_non_cycle
+
+def test_df_three_nodes_complex():
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('d')
+    graph.add_node('f')
+    graph.add_node('e')
+    graph.add_node('c')
+    graph.add_edge('a', 'e')
+    graph.add_edge('a', 'b')
+    graph.add_edge('c', 'f')
+    graph.add_edge('b', 'c')
+    graph.add_edge('b', 'd')
+    assert graph.depth_first('a') == ['a', 'e', 'b', 'c', 'f', 'd']
 
 
-# def test_bf_cycle
+def test_bf_one_node():
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    assert graph.breadth_first('a') == ['a']
+
+
+def test_bf_two_nodes():
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_edge('a', 'b')
+    assert graph.breadth_first('a') == ['a', 'b']
+
+
+def test_bf_three_nodes():
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('d')
+    graph.add_edge('a', 'b')
+    graph.add_node('c')
+    graph.add_edge('a', 'c')
+    assert graph.breadth_first('a') == ['a', 'b', 'c']
+
