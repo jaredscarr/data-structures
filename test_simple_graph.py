@@ -83,7 +83,7 @@ def test_neighbors():
     graph.add_node('chicken')
     graph.add_node('egg')
     graph.add_edge('egg', 'chicken')
-    assert graph.get_neighbors('egg') == ['chicken']
+    assert graph.get_neighbors('egg') == {'chicken': 0}
 
 
 def test_neighbors_KeyError():
