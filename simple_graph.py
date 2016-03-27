@@ -26,11 +26,19 @@ class Graph(object):
         """Check if node is in the graph."""
         return value in self.container
 
-    def add_edge(self, pointer_node, destination_node):
+    def add_edge(self, pointer_node, destination_node, weight=0):
         """Add edge between two nodes. If not in graph add nodes and edge."""
+        # if destination_node not in self.container:
+        #     self.add_node(destination_node)
+        # self.container.setdefault(pointer_node, []).append(destination_node)
+        if pointer_node not in self.container:
+            self.add_node(pointer_node)
         if destination_node not in self.container:
             self.add_node(destination_node)
-        self.container.setdefault(pointer_node, []).append(destination_node)
+        if destination_node in self.container[pointer_node]:
+            pass
+        else:
+            self.container[pointer_node][destination_node] = weight
 
     def nodes(self):
         """Display a list of Nodes in the graph."""
