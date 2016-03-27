@@ -73,4 +73,29 @@ class Graph(object):
         return visited
 
 
-    # def breadth_first(self, start)
+    def breadth_first(self, start):
+        from collections import deque
+        visited, queue = [], deque([start])
+        for item in self.container[node]:
+            queue.appendleft(node)
+        while len(queue) > 0:
+            node = queue.pop()
+            if node not in visited:
+                visited.append(node)
+        return visited
+
+# def bfs(graph, start):
+#     visited, queue = set(), [start]
+#     while queue:
+#        vertex = queue.pop(0)
+#        if vertex not in visited:
+#            visited.add(vertex)
+#            queue.extend(graph[vertex] - visited)
+#    return visited
+
+
+
+
+
+
+
