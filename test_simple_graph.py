@@ -2,28 +2,6 @@
 import pytest
 
 
-@pytest.fixture()
-def non_cycle_graph():
-    """Fixture that makes a graph without a cycle."""
-    from simple_graph import Graph
-    non_cycle = Graph()
-    non_cycle.add_edge("a", "b")
-    non_cycle.add_edge("c", "d")
-    non_cycle.add_edge("c", "b")
-    return non_cycle
-
-
-@pytest.fixture()
-def cycle_graph():
-    """Fixture that makes a full graph."""
-    from simple_graph import Graph
-    cycle_graph = Graph()
-    cycle_graph.add_edge("a", "b")
-    cycle_graph.add_edge("c", "d")
-    cycle_graph.add_edge("d", "a")
-    return cycle_graph
-
-
 def test_add_node():
     """Test if node added to graph."""
     from simple_graph import Graph

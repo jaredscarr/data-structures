@@ -9,5 +9,5 @@ Stack
 Deque
 BinHeap
 Priority Queue
-Graph
->>>>>>> 174684c5cb0ed06a2cb00f2cdf50c36f14290a1f
+Graph - Has depth first and breadth first traversal.
+Weighted Graph - Same as graph but edges have weights attributed to them.
