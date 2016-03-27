@@ -57,6 +57,17 @@ def test_add_edge():
     assert 'chicken' in graph.container['egg']
 
 
+def test_add_edge_destination_node_not_exist():
+    """Test if a node is added if it is the destination and does not exist."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('chicken')
+    graph.add_edge('chicken', 'egg')
+    assert 'egg' in graph.container
+    assert 'egg' in graph.container['chicken']
+
+
+
 def test_delete_node():
     """Delete selected node."""
     from simple_graph import Graph
@@ -205,7 +216,6 @@ def test_bf_three_nodes():
     graph.add_node('a')
     graph.add_node('b')
     graph.add_node('c')
-    # graph.add_node('d')
     graph.add_edge('a', 'b')
     graph.add_edge('a', 'c')
     print(graph.container)

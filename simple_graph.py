@@ -24,8 +24,9 @@ class Graph(object):
 
     def add_edge(self, pointer_node, destination_node):
         """Add edge between two nodes. If not in graph add nodes and edge."""
+        if destination_node not in self.container:
+            self.add_node(destination_node)
         self.container.setdefault(pointer_node, []).append(destination_node)
-        self.add_node(destination_node)
 
     def nodes(self):
         """Display a list of Nodes in the graph."""
@@ -65,37 +66,24 @@ class Graph(object):
             return node2 in self.container[node1]
 
     def depth_first(self, start, visited=[]):
-        """Return list of visited nodes."""
+        """Return list of visited nodes using depth first."""
         visited = visited + [start]
         for edge in self.container[start]:
             if edge not in visited:
                 visited = self.depth_first(edge, visited)
         return visited
 
-
-    # def breadth_first(self, start):
-    #     from collections import deque
-    #     visited, queue = [], deque([start])
-    #     for item in self.container[node]:
-    #         queue.appendleft(node)
-    #     while len(queue) > 0:
-    #         node = queue.pop()
-    #         if node not in visited:
-    #             visited.append(node)
-    #     return visited
-
-# def bfs(graph, start):
-#     visited, queue = set(), [start]
-#     while queue:
-#        vertex = queue.pop(0)
-#        if vertex not in visited:
-#            visited.add(vertex)
-#            queue.extend(graph[vertex] - visited)
-#    return visited
-
-
-
-
-
-
-
+    def breadth_first(self, start):
+        """Return a list of visited nodes using breadth first."""
+        from collections import deque
+        visited, queue = [], deque([start])
+        try:
+            while len(queue) > 0:
+                node = queue.pop()
+                if node not in visited:
+                    visited.append(node)
+                    for edge in self.container[node]:
+                        queue.appendleft(edge)
+            return visited
+        except (TypeError, KeyError):
+            return visited
