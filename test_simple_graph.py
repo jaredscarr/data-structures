@@ -205,3 +205,36 @@ def test_bf_five_nodes():
     graph.add_edge('a', 'd')
     graph.add_edge('b', 'e')
     assert graph.breadth_first('a') == ['a', 'b', 'c', 'd', 'e']
+
+
+# dykstra tests
+
+def test_shortest_path_dijkstra():
+    """Return the shortest path."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('c')
+    graph.add_node('d')
+    graph.add_edge('a', 'b', 5)
+    graph.add_edge('a', 'c', 10)
+    graph.add_edge('b', 'd', 8)
+    graph.add_edge('c', 'd', 4)
+    assert graph.shortest_path('a') == ['a', 'b', 'd']
+
+
+def test_shortest_path_Bellman():
+    """Return the shortest path."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('c')
+    graph.add_node('d')
+    graph.add_edge('a', 'b', 5)
+    graph.add_edge('a', 'c', 10)
+    graph.add_edge('b', 'd', 8)
+    graph.add_edge('c', 'd', 4)
+    assert graph.shortest_path('a') == ['a', 'b', 'd']
+
