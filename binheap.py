@@ -10,80 +10,47 @@ class Heap(object):
         #         self.push(i)
         # else:
         self.container = []
+        self.current_size = 0
 
-    def left(self, index):
-        """Return left child of parent."""
-        return self.container[(index * 2) + 1]
-
-    def right(self, index):
-        """Return right child of parent."""
-        return self.container[(index * 2) + 2]
-
-    def parent(self, index):
-        """Return parent of a child."""
-        return self.container[index // 2 - 1]
-
-    def swap(self, value):
-        """Swap parent and child."""
-        val_index = self.container.index(value)
-        current_parent = self.parent(val_index)
-        self.container[current_parent] = value
-        self.container[val_index] = current_parent
-        return self.container[current_parent]
+    # def swap(self, value):
+    #     """Swap parent and child."""
+    #     val_index = self.container.index(value)
+    #     current_parent = self.parent(val_index)
+    #     self.container[current_parent] = value
+    #     self.container[val_index] = current_parent
+    #     return self.container[current_parent]
 
     def push(self, value):
         """Push a value to the Heap and maintain Heap structure."""
-        heap = self.container
-        heap.append(value)
-        current_parent = self.parent(self.container.index(value))
-        while value > current_parent:
-            print(heap)
-            value = self.swap(value)
-            current_parent = self.parent(self.container.index(value))
+        self.container.append(value)
+        child = len(self.container) - 1
+        parent = (child - 1) // 2
+        while child > 1 and self.container[child - 1] > self.container[parent - 1]:
+            small_parent = self.container[parent - 1]
+            self.container[parent - 1] = self.container[child - 1]
+            self.container[child - 1] = small_parent
+            child = parent
+            parent = (child - 1) // 2
 
-#     def bubble_up():
-#         swappy_thing(left(index), parent(index))
+    def pop(self):
+        """Pop the root of the heap."""
+        self.container[0] = self.container.pop()
+        self.sort_to_leaf(0)
 
-
-
-
-
-
-
-
-
-
-
-
-#     @property
-#     # to set length of list
-#     def foo(self):
-#         return self._foo
-
-# # Use len - 1, not insert ''
-
-
-#     # def heapify(self):
-
-
-
-#     # def push(self):
-
-
-
-
-#     def swap(index):
-#         temp = my_list[parent(index)]
-#         my_list[parent(index)] = my_list[index]
-#         my_list[index] = temp
-
-#     while (index+1) // 2 > 0:
-
-
-#         parent = (index - 1) >> 1
-#         bitshifting
-
-
-
-
-
+    def sort_to_leaf(self, index):
+        """Sort up the heap."""
+        # import pdb; pdb.set_trace()
+        index += 1
+        left = 2 * index
+        right = 2 * index + 1
+        most_huge = index
+        size = len(self.container)
+        if left <= size and self.container[left - 1] > self.container[most_huge - 1]:
+            most_huge = left
+        if right <= left and self.container[right - 1] > self.container[most_huge - 1]:
+            most_huge = right
+        if most_huge != index:
+            value = self.container[index - 1]
+            self.container[index - 1] = self.container[most_huge - 1]
+            self.container[most_huge - 1] = value
+            self.sort_to_leaf(most_huge - 1)
