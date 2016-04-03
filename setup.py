@@ -5,10 +5,10 @@ setup(
     name='data-structures',
     description="Various data-structure assignments",
     version=0.1,
-    author="Daniel Zwelling and Jared Scarr",
-    author_email="dzwellingmusic@gmail.com, jaredscarr@gmail.com",
+    author="Daniel Swelling and Jared Scarr",
+    author_email="jaredscarr@gmail.com",
     license='MIT',
-    py_modules=['linked_list'],
+    py_modules=[],
     install_requires=[],
-    extras_require={'test': ['pytest', 'pytest-xdist', 'tox']}
+    extras_require={'test': ['pytest', 'pytest-xdist', 'tox']},
 )
