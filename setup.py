@@ -8,8 +8,7 @@ setup(
     author="Daniel Swelling and Jared Scarr",
     author_email="jaredscarr@gmail.com",
     license='MIT',
-    py_modules=['mail_room'],
-    # package_dir={'': 'mail-room'},
+    py_modules=[],
     install_requires=[],
     extras_require={'test': ['pytest', 'pytest-xdist', 'tox']},
 )

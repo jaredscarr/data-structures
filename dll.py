@@ -23,8 +23,8 @@ class DoublyLinkedList(object):
             try:
                 for i in iterable:
                     self.insert(i)
-            except TypeError:
-                print('value is not an interable')
+            except:
+                raise TypeError('value is not an interable')
 
     def insert(self, val):
         """Insert new node at head of list."""
@@ -55,8 +55,7 @@ class DoublyLinkedList(object):
     def pop(self):
         """Remove node at head and returns the value."""
         if self.head is None:
-            raise AttributeError
-            print('err')
+            raise IndexError('Cannot pop an empty list!')
         current = self.head
         new_head = self.head.next
         new_head.previous = None
@@ -67,8 +66,7 @@ class DoublyLinkedList(object):
     def shift(self):
         """Remove node at the tail and return the value."""
         if self.tail is None:
-            raise AttributeError
-            print('You can shift an empty list!')
+            raise IndexError('Cannot shift on an empty list!')
         last_node = self.tail
         new_tail = self.tail.previous
         new_tail.next = None
@@ -90,7 +88,7 @@ class DoublyLinkedList(object):
             while current.next.val != val:
                 try:
                     current = current.next
-                except AttributeError:
-                    print('That value is not here.')
+                except:
+                    raise ValueError('That value is not in the list.')
             current.next = current.next.next
             current.next.previous = current

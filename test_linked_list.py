@@ -27,15 +27,6 @@ def test_size():
     assert my_list.size() == 3
 
 
-def test_display():
-    """Print the list."""
-    from linked_list import LinkedList
-    my_list = LinkedList()
-    my_list.insert(1)
-    my_list.insert(2)
-    assert my_list.size() == len(my_list.display())
-
-
 def test_pop():
     """Assert first value was removed and returned."""
     from linked_list import LinkedList
