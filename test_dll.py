@@ -79,6 +79,22 @@ def test_pop_non_empty():
     assert my_list.pop() == 5
 
 
+def test_pop_single_item_list():
+    """Test pop on single item list."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    my_list.insert(4)
+    my_list.pop()
+    assert my_list.head is None
+
+
+def test_pop_empty():
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    with pytest.raises(IndexError):
+        my_list.pop()
+
+
 def test_shift():
     """Assert shift works on non empty list."""
     from dll import DoublyLinkedList
@@ -89,11 +105,20 @@ def test_shift():
     assert my_list.shift() == 1
 
 
+def test_shift_single_item_list():
+    """Test pop on single item list."""
+    from dll import DoublyLinkedList
+    my_list = DoublyLinkedList()
+    my_list.insert(4)
+    my_list.shift()
+    assert my_list.head is None
+
+
 def test_shift_empty():
     """Assert shift works on empty list."""
     from dll import DoublyLinkedList
     my_list = DoublyLinkedList()
-    with pytest.raises(AttributeError):
+    with pytest.raises(IndexError):
         my_list.shift()
 
 
