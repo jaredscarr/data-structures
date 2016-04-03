@@ -9,10 +9,6 @@ class Node(object):
         self.val = val
         self.next = None
 
-    def get_val(self):
-        """Get data."""
-        return self.val
-
 
 class LinkedList(object):
     """Handle creation of a linked list."""
@@ -41,7 +37,7 @@ class LinkedList(object):
         while current and not found:
             if current.val == val:
                 found = True
-                return current.val
+                return current
             current = current.next
         return None
 
