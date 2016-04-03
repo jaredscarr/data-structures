@@ -56,6 +56,10 @@ class DoublyLinkedList(object):
         """Remove node at head and returns the value."""
         if self.head is None:
             raise IndexError('Cannot pop an empty list!')
+        if self.head.next is None:
+            return_val = self.head.val
+            self.head = None
+            return return_val
         current = self.head
         new_head = self.head.next
         new_head.previous = None
@@ -67,6 +71,11 @@ class DoublyLinkedList(object):
         """Remove node at the tail and return the value."""
         if self.tail is None:
             raise IndexError('Cannot shift on an empty list!')
+        if self.tail.previous is None:
+            return_val = self.tail.val
+            self.tail = None
+            self.head = None
+            return return_val
         last_node = self.tail
         new_tail = self.tail.previous
         new_tail.next = None
