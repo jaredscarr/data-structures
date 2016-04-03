@@ -2,28 +2,6 @@
 import pytest
 
 
-@pytest.fixture()
-def non_cycle_graph():
-    """Fixture that makes a graph without a cycle."""
-    from simple_graph import Graph
-    non_cycle = Graph()
-    non_cycle.add_edge("a", "b")
-    non_cycle.add_edge("c", "d")
-    non_cycle.add_edge("c", "b")
-    return non_cycle
-
-
-@pytest.fixture()
-def cycle_graph():
-    """Fixture that makes a full graph."""
-    from simple_graph import Graph
-    cycle_graph = Graph()
-    cycle_graph.add_edge("a", "b")
-    cycle_graph.add_edge("c", "d")
-    cycle_graph.add_edge("d", "a")
-    return cycle_graph
-
-
 def test_add_node():
     """Test if node added to graph."""
     from simple_graph import Graph
@@ -86,7 +64,7 @@ def test_delete_edge_in_graph():
     graph.add_node('egg')
     graph.add_edge('egg', 'chicken')
     graph.delete_edge('egg', 'chicken')
-    assert graph.container['egg'] == []
+    assert graph.container['egg'] == {}
 
 
 def test_delete_edge_key_error():
@@ -98,15 +76,6 @@ def test_delete_edge_key_error():
         graph.delete_edge('dog', 'egg')
 
 
-def test_delete_edge_value_error():
-    """Test if ValueError exception is raised."""
-    from simple_graph import Graph
-    with pytest.raises(ValueError):
-        graph = Graph()
-        graph.add_node('egg')
-        graph.delete_edge('egg', 'dog')
-
-
 def test_neighbors():
     """Return the list of all nodes connect to node."""
     from simple_graph import Graph
@@ -114,7 +83,7 @@ def test_neighbors():
     graph.add_node('chicken')
     graph.add_node('egg')
     graph.add_edge('egg', 'chicken')
-    assert graph.get_neighbors('egg') == ['chicken']
+    assert graph.get_neighbors('egg') == {'chicken': 0}
 
 
 def test_neighbors_KeyError():
@@ -236,3 +205,36 @@ def test_bf_five_nodes():
     graph.add_edge('a', 'd')
     graph.add_edge('b', 'e')
     assert graph.breadth_first('a') == ['a', 'b', 'c', 'd', 'e']
+
+
+# dykstra tests
+
+def test_shortest_path_dijkstra():
+    """Return the shortest path."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('c')
+    graph.add_node('d')
+    graph.add_edge('a', 'b', 5)
+    graph.add_edge('a', 'c', 10)
+    graph.add_edge('b', 'd', 8)
+    graph.add_edge('c', 'd', 4)
+    assert graph.shortest_path('a') == ['a', 'b', 'd']
+
+
+def test_shortest_path_Bellman():
+    """Return the shortest path."""
+    from simple_graph import Graph
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('c')
+    graph.add_node('d')
+    graph.add_edge('a', 'b', 5)
+    graph.add_edge('a', 'c', 10)
+    graph.add_edge('b', 'd', 8)
+    graph.add_edge('c', 'd', 4)
+    assert graph.shortest_path('a') == ['a', 'b', 'd']
+

@@ -2,6 +2,17 @@
 import pytest
 
 
+@pytest.fixture()
+def linked_list():
+    """Test fixture for linked list tests."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.insert('a')
+    ll.insert('b')
+    ll.insert('c')
+    return ll
+
+
 def test_node_class():
     """Test Node."""
     from linked_list import Node
@@ -14,7 +25,7 @@ def test_search():
     from linked_list import LinkedList
     fake_list = LinkedList()
     fake_list.insert('that')
-    assert fake_list.search('that') == 'that'
+    assert fake_list.search('that') == fake_list.head
 
 
 def test_size():
@@ -71,6 +82,21 @@ def test_remove():
     my_list.insert('c')
     my_list.remove('b')
     assert my_list.head.next.val == 'a'
+
+
+def test_remove_last_node(linked_list):
+    """Test can remove last node."""
+    linked_list.remove('a')
+    assert linked_list.head.next.next is None
+
+
+def test_remove_one_node():
+    """Test to remove one node."""
+    from linked_list import LinkedList
+    my_list = LinkedList()
+    my_list.insert('a')
+    my_list.remove('a')
+    assert my_list.head is None
 
 
 def test_remove_error():
