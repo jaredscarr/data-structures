@@ -1,7 +1,6 @@
 # data-structures
-Data structure assignments by Jared Scarr and Daniel Zwelling.
 
-Includes the following:
+This repo contains implementations of various data structures.
 
 Linked List
     Has a Linked List Class and a Node Class.
